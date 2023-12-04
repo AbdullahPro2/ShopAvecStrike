@@ -1,0 +1,53 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  position: relative;
+}
+.navbar-list {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  background-color: lightgray;
+  width: 0px;
+  opacity: 0;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+.navbar-active {
+  overflow: visible;
+  width: 50%;
+  opacity: 1;
+  display: flex;
+}
+/* NAVBAR MENU ICONS */
+.navbar-icons {
+  position: absolute;
+  right: 0px;
+  z-index: 5;
+}
+.navbar-icons img {
+  width: 24px;
+}
+
+/* LOGO CONTAINTER */
+.navbar-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.logo-img {
+  width: 32px;
+}
+.logo {
+  border-top-left-radius: 10px green;
+  border-bottom-right-radius: 10px;
+}

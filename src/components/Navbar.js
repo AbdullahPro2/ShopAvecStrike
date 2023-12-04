@@ -8,17 +8,17 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <h1 className="logo">S A S</h1>
+        <h1 className="logo">SAS</h1>
         <img src={Logo} alt="logoIcon" className="logo-img" />
       </div>
       <ul className={`navbar-list ${isActive ? "navbar-active" : ""}`}>
-        <NavLink>
+        <NavLink to={"/product/men"}>
           <li className="navbar-items">Men's</li>
         </NavLink>
-        <NavLink>
+        <NavLink to={"/product/women"}>
           <li className="navbar-items">Women's</li>
         </NavLink>
-        <NavLink>
+        <NavLink to={"/product/kid"}>
           <li className="navbar-items">Kid's</li>
         </NavLink>
         <NavLink>

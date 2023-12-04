@@ -27,6 +27,9 @@
   opacity: 1;
   display: flex;
 }
+.navbar-list li {
+  color: black;
+}
 /* NAVBAR MENU ICONS */
 .navbar-icons {
   position: absolute;
@@ -48,6 +51,10 @@
   width: 32px;
 }
 .logo {
-  border-top-left-radius: 10px green;
-  border-bottom-right-radius: 10px;
+  color: #e74c3c;
+  font-weight: 300;
+  font-size: 2.2rem;
+  line-height: 0.6;
+  font-family: "Bangers", cursive;
+  letter-spacing: 5px;
 }

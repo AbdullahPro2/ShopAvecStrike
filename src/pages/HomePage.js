@@ -1,0 +1,7 @@
+import "../styles/navbar.css";
+
+function HomePage() {
+  return <div></div>;
+}
+
+export default HomePage;

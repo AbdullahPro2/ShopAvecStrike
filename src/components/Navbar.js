@@ -7,24 +7,26 @@ function Navbar() {
   const [isActive, setIsActive] = useState(false);
   return (
     <nav className="navbar">
-      <div className="navbar-logo">
-        <h1 className="logo">SAS</h1>
-        <img src={Logo} alt="logoIcon" className="logo-img" />
-      </div>
+      <NavLink to={"/"} onClick={() => setIsActive(false)}>
+        <div className="navbar-logo">
+          <h1 className="logo">SAS</h1>
+          <img src={Logo} alt="logoIcon" className="logo-img" />
+        </div>
+      </NavLink>
       <ul className={`navbar-list ${isActive ? "navbar-active" : ""}`}>
-        <NavLink to={"/product/men"}>
+        <NavLink to={"/product/men"} onClick={() => setIsActive(false)}>
           <li className="navbar-items">Men's</li>
         </NavLink>
-        <NavLink to={"/product/women"}>
+        <NavLink to={"/product/women"} onClick={() => setIsActive(false)}>
           <li className="navbar-items">Women's</li>
         </NavLink>
-        <NavLink to={"/product/kid"}>
+        <NavLink to={"/product/kid"} onClick={() => setIsActive(false)}>
           <li className="navbar-items">Kid's</li>
         </NavLink>
-        <NavLink>
+        <NavLink onClick={() => setIsActive(false)}>
           <li className="navbar-items">About us</li>
         </NavLink>
-        <NavLink>
+        <NavLink onClick={() => setIsActive(false)}>
           <li className="navbar-items">Contact</li>
         </NavLink>
       </ul>

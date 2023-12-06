@@ -13,6 +13,62 @@ a {
 li {
   list-style: none;
 }
+/* Carousel & Carousel Item */
+.crousel-container {
+  margin-top: 1rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 50vh;
+  overflow: hidden;
+}
+.crousel-item-0 {
+  background-image: linear-gradient(to right, #87cefa, #1c6af2);
+}
+
+.crousel-item-1 {
+  background-color: #d2b48c;
+}
+
+.crousel-item-2 {
+  background-color: #add8e6;
+}
+
+.crousel-item-3 {
+  background-color: #add8e6;
+}
+
+.crousel-detail {
+  padding: 5rem 1rem;
+  /* border: 2px solid blue; */
+  margin: auto 0px;
+}
+
+.crousel-detail h1 {
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+
+.crousel-detail p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.crousel-detail button {
+  border-radius: 10px;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  background-color: #000;
+  color: white;
+}
+
+.carousel-img {
+  /* border: 2px solid #008000; */
+  margin: auto auto;
+  max-width: 100%;
+  max-height: 50vh;
+}
+
 @media (min-width: 768px) {
   html {
     font-size: 70%;

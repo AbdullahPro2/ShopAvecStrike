@@ -13,7 +13,7 @@ const data = [
     description:
       "Explore perfect styles for every family member! From trendy tops to cozy bottoms, stylish suits, comfortable boots, and more – unleash fashion for the whole family!",
     img: familyBanner,
-    category: "Family's ",
+    category: "/allproducts",
   },
   {
     id: 1,
@@ -21,14 +21,14 @@ const data = [
     description:
       "Dive into our best collection featuring stylish t-shirts, classic jeans, trendy jackets, fashionable watches, sleek bags, and cool sunglasses",
     img: menBanner,
-    category: "Men's",
+    category: "/product/men",
   },
   {
     id: 2,
     title: "Women Collection",
     description:
       "Discover our best picks, including chic tops, comfy leggings, elegant coats, stylish outerwear, stunning jewelry, trendy accessories, fashionable handbags, purses, and eyewear",
-    category: "women's",
+    category: "/product/women",
     img: womenBanner,
   },
   {
@@ -36,13 +36,13 @@ const data = [
     title: "Kids Collection",
     description:
       "Explore cool shirts, stylish pants, dapper suits, trendy boots, and more – perfect for young gentlemen! Discover the latest in kids' fashion.",
-    category: "kid's=",
+    category: "/product/kid",
     img: kidsBanner,
   },
 ];
-
 function Carousel() {
   const [activeIndex, setActiveIndex] = useState(0);
+  console.log(activeIndex);
   useEffect(() => {
     let newIndex = activeIndex + 1;
     if (newIndex < 0) {
@@ -55,7 +55,7 @@ function Carousel() {
     }, 5000);
 
     return () => clearTimeout(timtOut);
-  }, [activeIndex, data.length]);
+  }, [activeIndex]);
 
   function handleChangeIndex(index) {
     if (index > data.length - 1) {
@@ -82,6 +82,14 @@ function Carousel() {
         ))}
         <CarouselItem item={data[0]} />
       </SwipeableViews>
+      <div className="pagination">
+        {data.map((item, index) => (
+          <p
+            key={index}
+            className={`${activeIndex === index ? "pagination-active" : ""}`}
+          ></p>
+        ))}
+      </div>
     </div>
   );
 }

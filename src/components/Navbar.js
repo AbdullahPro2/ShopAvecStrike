@@ -16,14 +16,17 @@ function Navbar() {
           </div>
         </NavLink>
         <ul className={`navbar-list ${isActive ? "navbar-active" : ""}`}>
+          <NavLink to={"/allproducts"} onClick={() => setIsActive(false)}>
+            <li className="navbar-items">Products</li>
+          </NavLink>
           <NavLink to={"/product/men"} onClick={() => setIsActive(false)}>
-            <li className="navbar-items">Men's</li>
+            <li className="navbar-items">Mens</li>
           </NavLink>
           <NavLink to={"/product/women"} onClick={() => setIsActive(false)}>
-            <li className="navbar-items">Women's</li>
+            <li className="navbar-items">Womens</li>
           </NavLink>
           <NavLink to={"/product/kid"} onClick={() => setIsActive(false)}>
-            <li className="navbar-items">Kid's</li>
+            <li className="navbar-items">Kids</li>
           </NavLink>
           <NavLink onClick={() => setIsActive(false)}>
             <li className="navbar-items">About us</li>

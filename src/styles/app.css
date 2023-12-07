@@ -21,21 +21,7 @@ li {
   grid-template-columns: 1fr 1fr;
   height: 50vh;
   overflow: hidden;
-}
-.crousel-item-0 {
-  background-image: linear-gradient(to right, #87cefa, #1c6af2);
-}
-
-.crousel-item-1 {
-  background-color: #d2b48c;
-}
-
-.crousel-item-2 {
-  background-color: #add8e6;
-}
-
-.crousel-item-3 {
-  background-color: #add8e6;
+  margin-bottom: 1rem;
 }
 
 .crousel-detail {
@@ -60,17 +46,63 @@ li {
   padding: 0.5rem 1.5rem;
   background-color: #000;
   color: white;
+  cursor: pointer;
 }
 
 .carousel-img {
   /* border: 2px solid #008000; */
   margin: auto auto;
   max-width: 100%;
-  max-height: 50vh;
+  max-height: 52vh;
+}
+.crousel-item-0 {
+  background-image: linear-gradient(to right, #87cefa, #1c6af2);
+}
+
+.crousel-item-1 {
+  background-color: #d2b48c;
+}
+.crousel-item-1 .carousel-img {
+  min-height: 25vh;
+}
+.crousel-item-2 {
+  background-color: rgba(245, 141, 100, 0.863);
+}
+
+.crousel-item-3 {
+  background-color: #add8e6;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.pagination p {
+  border-radius: 100%;
+  background-color: #e74d3c65;
+  padding: 0.3rem;
+}
+.pagination-active {
+  background-color: #e74c3c !important;
 }
 
 @media (min-width: 768px) {
   html {
-    font-size: 70%;
+    font-size: 75%;
+  }
+  .crousel-detail {
+    width: 75%;
+    margin: auto auto;
+  }
+  .crousel-detail h1 {
+    font-size: 2.7rem;
+  }
+
+  .crousel-detail p {
+    font-size: 1.4rem;
+  }
+  .crousel-detail button {
+    padding: 0.5rem 1.5rem;
+    font-size: 1.4rem;
   }
 }

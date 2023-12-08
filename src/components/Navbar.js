@@ -47,6 +47,7 @@ function Navbar() {
               src={CrossIcon}
               alt="crossIcon"
               onClick={() => setIsActive((prev) => !prev)}
+              className="crossIcon"
             />
           )}
         </div>

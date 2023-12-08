@@ -6,7 +6,8 @@
   margin-bottom: 0.5rem;
 }
 .navbar-list {
-  background-color: rgba(240, 230, 140, 0.816);
+  background-color: #1f1f1f;
+  border: 2px solid white;
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -26,12 +27,18 @@
 .navbar-active {
   overflow: visible;
   width: 50%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
   opacity: 1;
   display: flex;
 }
 .navbar-list li {
-  color: black;
+  color: whitesmoke;
+  text-decoration: underline;
   font-size: 1.7rem;
+}
+.navbar-list li:hover {
+  color: blue;
 }
 /* NAVBAR MENU ICONS */
 .navbar-icons {
@@ -41,6 +48,9 @@
 }
 .navbar-icons img {
   width: 24px;
+}
+.crossIcon {
+  filter: invert(1);
 }
 
 /* LOGO CONTAINTER */
@@ -98,6 +108,10 @@
     height: auto;
     position: relative;
     background-color: transparent;
+  }
+  .navbar-list li {
+    color: black;
+    text-decoration: none;
   }
   .search-bar {
     width: 40%;

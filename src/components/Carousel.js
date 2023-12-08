@@ -42,7 +42,6 @@ const data = [
 ];
 function Carousel() {
   const [activeIndex, setActiveIndex] = useState(0);
-  console.log(activeIndex);
   useEffect(() => {
     let newIndex = activeIndex + 1;
     if (newIndex < 0) {

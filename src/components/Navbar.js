@@ -4,6 +4,7 @@ import CrossIcon from "../Assets/CrossIcon.png";
 import Logo from "../Assets/logo_big.png";
 import SearchBarIcon from "../Assets/search-bar-icon.png";
 import { useState } from "react";
+import { Link } from "react-scroll";
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
   return (
@@ -28,12 +29,22 @@ function Navbar() {
           <NavLink to={"/product/kid"} onClick={() => setIsActive(false)}>
             <li className="navbar-items">Kids</li>
           </NavLink>
-          <NavLink onClick={() => setIsActive(false)}>
+          <Link
+            to="about"
+            smooth={true}
+            duration={500}
+            onClick={() => setIsActive(false)}
+          >
             <li className="navbar-items">About us</li>
-          </NavLink>
-          <NavLink onClick={() => setIsActive(false)}>
+          </Link>
+          <Link
+            to="contact"
+            smooth={true}
+            duration={500}
+            onClick={() => setIsActive(false)}
+          >
             <li className="navbar-items">Contact</li>
-          </NavLink>
+          </Link>
         </ul>
         <div className="navbar-icons">
           {!isActive ? (

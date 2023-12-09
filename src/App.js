@@ -4,6 +4,7 @@ import AllProducts from "./pages/AllProducts";
 import Navbar from "./components/Navbar";
 import Product from "./pages/Product";
 import Login from "./pages/Login";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/product/:category" element={<Product />} />
         <Route path="/login" element={<Login />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

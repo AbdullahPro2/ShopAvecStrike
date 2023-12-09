@@ -13,6 +13,7 @@ a {
 li {
   list-style: none;
 }
+
 /* Carousel & Carousel Item */
 .crousel-container {
   margin-top: 1rem;
@@ -43,8 +44,8 @@ li {
   border-radius: 10px;
   border: none;
   padding: 0.5rem 1.5rem;
-  background-color: #000;
-  color: white;
+  background-color: #1f1f1f;
+  color: whitesmoke;
   cursor: pointer;
 }
 
@@ -124,6 +125,22 @@ li {
   font-size: 2rem;
 }
 
+/* About Us */
+.about-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+}
+.about-image {
+  /* border: 2px solid red; */
+  margin: 0 auto;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
 @keyframes loader {
   0% {
     transform: rotate(0deg);
@@ -160,5 +177,24 @@ li {
   .service img {
     width: 20%;
     margin-bottom: 0rem;
+  }
+  .about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .about-details {
+    /* border: 2px solid red; */
+    padding: 0 2rem;
+    margin: auto auto;
+    font-size: larger;
+  }
+  .about-image {
+    /* border: 2px solid red; */
+    margin: 0 auto;
+    max-width: 80%;
+    margin-bottom: 1rem;
+  }
+  .about-details h3 {
+    margin-bottom: 10px;
   }
 }

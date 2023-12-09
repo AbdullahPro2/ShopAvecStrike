@@ -1,3 +1,4 @@
+import About from "../components/About";
 import Carousel from "../components/Carousel";
 import NewCollection from "../components/NewCollection";
 import Services from "../components/Services";
@@ -9,6 +10,7 @@ function HomePage() {
       <Carousel />
       <NewCollection />
       <Services />
+      <About />
     </div>
   );
 }

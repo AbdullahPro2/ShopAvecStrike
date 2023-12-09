@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import "../styles/newCollection.css";
 import { ProductContext } from "../context/productContext";
 import { Link } from "react-router-dom";
+import Loader from "./Loader";
 
 function NewCollection() {
   const { products, isLoading, getNewCollectionData } =
@@ -10,6 +11,8 @@ function NewCollection() {
   useEffect(() => {
     getNewCollectionData();
   }, []);
+  console.log(isLoading);
+  if (isLoading) return <Loader />;
   return (
     <>
       <h1 className="collection-heading">New Collection</h1>

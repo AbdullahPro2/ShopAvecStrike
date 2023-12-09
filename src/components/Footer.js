@@ -1,0 +1,90 @@
+import React, { useRef } from "react";
+import "../styles/footer.css";
+import instagram from "../Assets/instagram.png";
+import pinterest from "../Assets/pinterest.png";
+import github from "../Assets/github.png";
+import linkedin from "../Assets/linkedin.png";
+import logo from "../Assets/logoSmall.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+function Footer() {
+  AOS.init();
+  AOS.refresh();
+  const contactRef = useRef(null);
+  return (
+    <footer className="footer-distributed">
+      <div data-aos="fade-up" data-aos-duration="1000">
+        <div className="footer-left">
+          <div className="left-logo">
+            <img src={logo} alt="logo Icon" />
+            <h3>
+              <span>S A S</span>
+            </h3>
+          </div>
+          <p className="footer-links">
+            <a href="/" className="link-1">
+              Home
+            </a>
+            <a href="/">Blog</a>
+            <a href="/allproducts">Pricing</a>
+            <a href="/">About</a>
+            <a href="/">Faq</a>
+            <a href="/">Contact</a>
+          </p>
+          <p className="footer-company-name">Shop_Avec_Strike © 2023</p>
+        </div>
+
+        <div className="footer-center" id="contact" ref={contactRef}>
+          <h4 className="footer-center-heading">Contact Us</h4>
+          <div>
+            <i className="fa fa-map-marker"></i>
+            <p>9 Rue de Moulin 68100 Mulhouse, GrandEst, France</p>
+          </div>
+          <div>
+            <i className="fa fa-phone"></i>
+            <p>+33 98 66 33 31</p>
+          </div>
+          <div>
+            <i className="fa fa-envelope"></i>
+            <p>
+              <a href="mailto:support@company.com">support@company.com</a>
+            </p>
+          </div>
+        </div>
+
+        <div className="footer-right">
+          <p className="footer-company-about">
+            <span>About the company</span> Explore trendy clothing for men,
+            women, and kids. Quality fashion for every family member, available
+            at our online store.
+          </p>
+          <div className="footer-icons">
+            <a href="#">
+              <img src={instagram} alt="instagram icon" />
+            </a>
+            <a href="#">
+              <img src={pinterest} alt="pintester icon" />
+            </a>
+            <a
+              href="https://github.com/AbdullahPro2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={github} alt="github icon" />
+            </a>
+            <a
+              href="https://linkedin.com/in/abdulllahnezami"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={linkedin} alt="linkedin icon" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+export default Footer;

@@ -63,6 +63,7 @@ function Carousel() {
       setActiveIndex(index);
     }
   }
+
   return (
     <div>
       <SwipeableViews

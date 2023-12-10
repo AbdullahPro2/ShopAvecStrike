@@ -18,7 +18,7 @@ function Product(props) {
       </div>
       <div className="products-container">
         {products.map((item) => (
-          <ProductComponent item={item} />
+          <ProductComponent item={item} key={item.id} />
         ))}
       </div>
     </>

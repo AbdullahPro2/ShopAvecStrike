@@ -1,7 +1,7 @@
 import all_product from "../Assets/all_product";
 import new_collections from "../Assets/new_collections";
-
-const { createContext, useReducer } = require("react");
+import { auth } from "../firebase/firebaseConfig";
+const { createContext, useReducer, useEffect } = require("react");
 
 // Create a context
 const ProductContext = createContext();
@@ -11,6 +11,7 @@ const initialState = {
   userName: "",
   cart: [],
   isLoading: false,
+  user: null,
 };
 function reducer(state, action) {
   switch (action.type) {
@@ -37,25 +38,29 @@ function reducer(state, action) {
         isLoading: false,
         products: action.payload,
       };
+    case "setUser":
+      return {
+        ...state,
+        user: action.payload,
+      };
     default: {
       throw new Error("Unknown action type");
     }
   }
 }
 function ProductProvider({ children }) {
-  const [{ products, userName, cart, isLoading }, dispatch] = useReducer(
+  const [{ products, userName, cart, isLoading, user }, dispatch] = useReducer(
     reducer,
     initialState
   );
+
   async function getNewCollectionData() {
     dispatch({ type: "loading", payload: true });
     try {
       const fetchedCollections = await new_collections;
-      // Dispatch the data to the reducer
       dispatch({ type: "newCollection", payload: fetchedCollections });
     } catch (error) {
       console.error("Error fetching new collections:", error);
-      // Handle error state if needed
     } finally {
       dispatch({ type: "loading", payload: false });
     }
@@ -87,6 +92,20 @@ function ProductProvider({ children }) {
     }
   }
 
+  // Authentication
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        dispatch({ type: "setUser", payload: authUser });
+      } else {
+        console.error("No user Logged In");
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
   return (
     <ProductContext.Provider
       value={{
@@ -97,6 +116,8 @@ function ProductProvider({ children }) {
         getNewCollectionData,
         getAllProducts,
         getSpecificProduct,
+        user,
+        dispatch,
       }}
     >
       {children}

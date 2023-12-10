@@ -5,8 +5,9 @@ import Logo from "../Assets/logo_big.png";
 import SearchBarIcon from "../Assets/search-bar-icon.png";
 import { useState } from "react";
 import { Link } from "react-scroll";
-import userIcon from "../Assets/user.png";
+
 import cart from "../Assets/cart.png";
+import UserComponent from "./UserComponent";
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
   return (
@@ -44,11 +45,7 @@ function Navbar() {
               <img src={cart} alt="user-icon" className="cart-image" />
             </li>
           </NavLink>
-          <NavLink to={"/login"} onClick={() => setIsActive(false)}>
-            <li className="navbar-items">
-              <img src={userIcon} alt="user-icon" className="user-icon" />
-            </li>
-          </NavLink>
+          <UserComponent setIsActive={setIsActive} />
         </ul>
         <div className="navbar-icons">
           {!isActive ? (

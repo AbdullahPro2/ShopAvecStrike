@@ -1,18 +1,30 @@
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../firebase/firebaseConfig";
 
-function SignUp() {
+function SignUp({ setFirstVisit }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+  async function signUpUser(e) {
     e.preventDefault();
-
-    // Add your form submission logic here, e.g., send data to the server
-
-    console.log("Form submitted with:", { email, password, confirmPassword });
-  };
+    try {
+      if (password === confirmPassword) {
+        await createUserWithEmailAndPassword(auth, email, password).then(
+          (userCredential) => {
+            console.log(userCredential.user.email);
+            navigate("/allproducts");
+          }
+        );
+      } else {
+        throw new Error("Password Does not match");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div className="login-container">
@@ -21,7 +33,7 @@ function SignUp() {
           <h2>Sign Up</h2>
           <p>Continue your journey with our Product</p>
         </div>
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form" onSubmit={signUpUser}>
           <div className="email-container">
             <label htmlFor="email">Email</label>
             <input
@@ -59,7 +71,7 @@ function SignUp() {
       </div>
       <p className="bottom">
         Already have an account?{" "}
-        <Link to={"/login"} className="link">
+        <Link className="link" onClick={() => setFirstVisit(false)}>
           Login
         </Link>
       </p>

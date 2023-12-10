@@ -4,10 +4,14 @@ import "../styles/login.css";
 import SignUp from "../components/SignUp";
 import LoginPage from "../components/LoginPage";
 function UserID() {
+  const [firstVisit, setFirstVisit] = useState(true);
   return (
     <>
-      <SignUp />
-      <LoginPage />
+      {firstVisit ? (
+        <SignUp setFirstVisit={setFirstVisit} />
+      ) : (
+        <LoginPage setFirstVisit={setFirstVisit} />
+      )}
     </>
   );
 }

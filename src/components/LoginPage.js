@@ -1,21 +1,26 @@
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../firebase/firebaseConfig";
 
-function LoginPage() {
+function LoginPage({ setFirstVisit }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  async function handleLogin(e) {
     e.preventDefault();
-
-    // Add your form submission logic here, e.g., send data to the server
-
-    console.log("Form submitted with:", { email, password });
-
-    // Redirect to another page after successful login
-    navigate("/dashboard");
-  };
+    try {
+      signInWithEmailAndPassword(auth, email, password).then(
+        (userCredential) => {
+          console.log(userCredential.user.email);
+          navigate("/allproducts");
+        }
+      );
+    } catch (error) {
+      console.log("Error occured while logging in Try again");
+    }
+  }
 
   return (
     <div className="login-container">
@@ -24,7 +29,7 @@ function LoginPage() {
           <h2>Login</h2>
           <p>Continue your journey with our Product</p>
         </div>
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleLogin}>
           <div className="email-container">
             <label htmlFor="email">Email</label>
             <input
@@ -52,10 +57,10 @@ function LoginPage() {
       </div>
       <p className="bottom">
         First visit?{" "}
-        <Link to={"/signup"} className="link">
+        <Link className="link" onClick={() => setFirstVisit(true)}>
           SignUp
         </Link>
-      </p>{" "}
+      </p>
     </div>
   );
 }

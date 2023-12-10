@@ -8,18 +8,19 @@ function NewCollection() {
   const { products, isLoading, getNewCollectionData } =
     useContext(ProductContext);
 
-  console.log(isLoading);
   useEffect(() => {
     getNewCollectionData();
   }, []);
-  console.log(isLoading);
   if (isLoading) return <Loader />;
   return (
     <>
       <h1 className="collection-heading">New Collection</h1>
       <div className="new-collection-container">
         {products.map((item, index) => (
-          <div className={`new-collection-items new-collection-${index + 1}`}>
+          <div
+            className={`new-collection-items new-collection-${index + 1}`}
+            key={item.id}
+          >
             <Link to={"/allproducts"}>
               <img src={item.image} alt={"new collection photos"} />
               <div className="new-collection-details">

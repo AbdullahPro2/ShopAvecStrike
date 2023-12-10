@@ -17,7 +17,7 @@ function reducer(state, action) {
     case "loading":
       return {
         ...state,
-        isLoading: true,
+        isLoading: action.payload,
       };
     case "newCollection":
       return {
@@ -26,6 +26,12 @@ function reducer(state, action) {
         products: action.payload,
       };
     case "allProduts":
+      return {
+        ...state,
+        isLoading: false,
+        products: action.payload,
+      };
+    case "specificProduct":
       return {
         ...state,
         isLoading: false,
@@ -42,11 +48,43 @@ function ProductProvider({ children }) {
     initialState
   );
   async function getNewCollectionData() {
-    dispatch({ type: "loading" });
-    await dispatch({ type: "newCollection", payload: new_collections });
+    dispatch({ type: "loading", payload: true });
+    try {
+      const fetchedCollections = await new_collections;
+      // Dispatch the data to the reducer
+      dispatch({ type: "newCollection", payload: fetchedCollections });
+    } catch (error) {
+      console.error("Error fetching new collections:", error);
+      // Handle error state if needed
+    } finally {
+      dispatch({ type: "loading", payload: false });
+    }
   }
-  function getAllProducts() {
-    dispatch({ type: "allProduts", payload: all_product });
+
+  async function getAllProducts() {
+    dispatch({ type: "loading", payload: true });
+    try {
+      const fetchedCollections = await all_product;
+      dispatch({ type: "allProduts", payload: fetchedCollections });
+    } catch (error) {
+      console.error("Error fetching new collections:", error);
+    } finally {
+      dispatch({ type: "loading", payload: false });
+    }
+  }
+
+  async function getSpecificProduct(category) {
+    dispatch({ type: "loading", payload: true });
+    try {
+      const fetchedCollections = all_product.filter(
+        (item) => item.category === category
+      );
+      dispatch({ type: "specificProduct", payload: fetchedCollections });
+    } catch (error) {
+      console.error("Error fetching new collections:", error);
+    } finally {
+      dispatch({ type: "loading", payload: false });
+    }
   }
 
   return (
@@ -58,6 +96,7 @@ function ProductProvider({ children }) {
         userName,
         getNewCollectionData,
         getAllProducts,
+        getSpecificProduct,
       }}
     >
       {children}

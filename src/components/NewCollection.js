@@ -8,6 +8,7 @@ function NewCollection() {
   const { products, isLoading, getNewCollectionData } =
     useContext(ProductContext);
 
+  console.log(isLoading);
   useEffect(() => {
     getNewCollectionData();
   }, []);

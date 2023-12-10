@@ -13,8 +13,8 @@ function Footer() {
   AOS.refresh();
   const contactRef = useRef(null);
   return (
-    <footer className="footer-distributed">
-      <div data-aos="fade-up" data-aos-duration="1000">
+    <div data-aos="fade-up" data-aos-duration="1000">
+      <footer className="footer-distributed">
         <div className="footer-left">
           <div className="left-logo">
             <img src={logo} alt="logo Icon" />
@@ -82,8 +82,8 @@ function Footer() {
             </a>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   );
 }
 

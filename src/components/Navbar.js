@@ -29,14 +29,9 @@ function Navbar() {
           <NavLink to={"/product/kid"} onClick={() => setIsActive(false)}>
             <li className="navbar-items">Kids</li>
           </NavLink>
-          <Link
-            to="about"
-            smooth={true}
-            duration={500}
-            onClick={() => setIsActive(false)}
-          >
-            <li className="navbar-items">About us</li>
-          </Link>
+          <NavLink to={"/cart"} onClick={() => setIsActive(false)}>
+            <li className="navbar-items">Cart</li>
+          </NavLink>
           <Link
             to="contact"
             smooth={true}
@@ -45,6 +40,9 @@ function Navbar() {
           >
             <li className="navbar-items">Contact</li>
           </Link>
+          <NavLink to={"/login"} onClick={() => setIsActive(false)}>
+            <li className="navbar-items">Login</li>
+          </NavLink>
         </ul>
         <div className="navbar-icons">
           {!isActive ? (

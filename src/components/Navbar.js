@@ -5,6 +5,8 @@ import Logo from "../Assets/logo_big.png";
 import SearchBarIcon from "../Assets/search-bar-icon.png";
 import { useState } from "react";
 import { Link } from "react-scroll";
+import userIcon from "../Assets/user.png";
+import cart from "../Assets/cart.png";
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
   return (
@@ -29,9 +31,6 @@ function Navbar() {
           <NavLink to={"/product/kid"} onClick={() => setIsActive(false)}>
             <li className="navbar-items">Kids</li>
           </NavLink>
-          <NavLink to={"/cart"} onClick={() => setIsActive(false)}>
-            <li className="navbar-items">Cart</li>
-          </NavLink>
           <Link
             to="contact"
             smooth={true}
@@ -40,8 +39,15 @@ function Navbar() {
           >
             <li className="navbar-items">Contact</li>
           </Link>
+          <NavLink to={"/cart"} onClick={() => setIsActive(false)}>
+            <li className="navbar-items">
+              <img src={cart} alt="user-icon" className="cart-image" />
+            </li>
+          </NavLink>
           <NavLink to={"/login"} onClick={() => setIsActive(false)}>
-            <li className="navbar-items">Login</li>
+            <li className="navbar-items">
+              <img src={userIcon} alt="user-icon" className="user-icon" />
+            </li>
           </NavLink>
         </ul>
         <div className="navbar-icons">

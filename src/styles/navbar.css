@@ -50,8 +50,15 @@
 .navbar-icons img {
   width: 24px;
 }
-.crossIcon {
+.crossIcon,
+.cart-image,
+.user-icon {
   filter: invert(1);
+}
+/* Cart */
+.cart-image,
+.user-icon {
+  width: 30px;
 }
 
 /* LOGO CONTAINTER */
@@ -97,6 +104,11 @@
 @media (min-width: 768px) {
   .navbar-icons {
     display: none;
+  }
+
+  .cart-image,
+  .user-icon {
+    filter: invert(0);
   }
   .navbar {
     align-items: center;

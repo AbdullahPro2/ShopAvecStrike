@@ -43,6 +43,16 @@ function reducer(state, action) {
         ...state,
         user: action.payload,
       };
+    case "addToCart":
+      return {
+        ...state,
+
+        cart: action.payload.map((cartItem) => {
+          return all_product.find(
+            (item) => cartItem.data().productId === item.id
+          );
+        }),
+      };
     default: {
       throw new Error("Unknown action type");
     }

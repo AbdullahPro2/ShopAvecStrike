@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { ProductContext } from "../context/productContext";
 import { useNavigate } from "react-router-dom";
-import { reload, signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 import userIcon from "../Assets/user.png";
 function UserComponent({ setIsActive }) {

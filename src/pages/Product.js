@@ -14,7 +14,7 @@ function Product(props) {
     <>
       <div className="products-heading">
         <h1>Our {category}'s collection</h1>
-        <h3>We design our products with your quality in mind</h3>
+        <h3>We design our products with quality in mind</h3>
       </div>
       <div className="products-container">
         {products.map((item) => (

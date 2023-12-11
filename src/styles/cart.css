@@ -1,0 +1,10 @@
+.empty-cart {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.empty-cart-link {
+  color: black;
+  text-decoration: underline;
+}

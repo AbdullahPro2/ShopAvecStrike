@@ -8,15 +8,19 @@ function CartBtn({ product }) {
 
   const handleAddToCart = async (e) => {
     e.preventDefault();
-    try {
-      const docRef = await addDoc(collection(db, "cartItems"), {
-        productId: product.id,
-        productName: product.name,
-        userId: user.uid,
-      });
-      console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-      console.error("Error adding document: ", e);
+    if (user) {
+      try {
+        const docRef = await addDoc(collection(db, "cartItems"), {
+          productId: product.id,
+          productName: product.name,
+          userId: user.uid,
+        });
+        console.log("Document written with ID: ", docRef.id);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+    } else {
+      alert("Please login or signup first ");
     }
   };
 

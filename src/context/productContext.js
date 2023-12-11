@@ -1,6 +1,7 @@
+import { collection, onSnapshot, query, where } from "firebase/firestore";
 import all_product from "../Assets/all_product";
 import new_collections from "../Assets/new_collections";
-import { auth } from "../firebase/firebaseConfig";
+import { auth, db } from "../firebase/firebaseConfig";
 const { createContext, useReducer, useEffect } = require("react");
 
 // Create a context
@@ -42,6 +43,7 @@ function reducer(state, action) {
       return {
         ...state,
         user: action.payload,
+        cart: [],
       };
     case "addToCart":
       return {
@@ -63,6 +65,28 @@ function ProductProvider({ children }) {
     reducer,
     initialState
   );
+
+  // Fetching Items from database:
+
+  const itemsRef = collection(db, "cartItems");
+  useEffect(() => {
+    const fetchPost = async () => {
+      dispatch({ type: "loading", payload: true });
+      if (user) {
+        const queryItems = query(itemsRef, where("userId", "==", user.uid));
+        const unsubscribe = onSnapshot(queryItems, (snapShot) => {
+          dispatch({ type: "addToCart", payload: snapShot.docs });
+        });
+
+        dispatch({ type: "loading", payload: false });
+        return () => unsubscribe();
+      }
+      // Move this outside of the 'if (user)' block
+      dispatch({ type: "loading", payload: false });
+    };
+
+    fetchPost();
+  }, [user, cart.length]);
 
   async function getNewCollectionData() {
     dispatch({ type: "loading", payload: true });

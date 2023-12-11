@@ -8,3 +8,23 @@
   color: black;
   text-decoration: underline;
 }
+.cart {
+  position: relative;
+}
+.cart-length {
+  position: absolute;
+  top: 0rem;
+  right: -0.5rem;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: rgb(161, 11, 11);
+  color: whitesmoke;
+  font-weight: 500;
+  font-size: 1rem;
+  /* border: 2px solid green; */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

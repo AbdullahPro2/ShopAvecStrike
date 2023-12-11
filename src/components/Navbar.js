@@ -5,11 +5,13 @@ import Logo from "../Assets/logo_big.png";
 import SearchBarIcon from "../Assets/search-bar-icon.png";
 import { useState } from "react";
 import { Link } from "react-scroll";
-
-import cart from "../Assets/cart.png";
+import cartImg from "../Assets/cart.png";
 import UserComponent from "./UserComponent";
+import { useContext } from "react";
+import { ProductContext } from "../context/productContext";
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
+  const { cart } = useContext(ProductContext);
   return (
     <>
       <nav className="navbar">
@@ -41,8 +43,9 @@ function Navbar() {
             <li className="navbar-items">Contact</li>
           </Link>
           <NavLink to={"/cart"} onClick={() => setIsActive(false)}>
-            <li className="navbar-items">
-              <img src={cart} alt="user-icon" className="cart-image" />
+            <li className="navbar-items cart">
+              <img src={cartImg} alt="user-icon" className="cart-image" />
+              {cart.length > 0 && <p className="cart-length">{cart.length}</p>}
             </li>
           </NavLink>
           <UserComponent setIsActive={setIsActive} />

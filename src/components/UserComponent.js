@@ -1,11 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { ProductContext } from "../context/productContext";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 import userIcon from "../Assets/user.png";
 function UserComponent({ setIsActive }) {
-  const [userPic, setUserPic] = useState(null);
   const { user, dispatch } = useContext(ProductContext);
   const navigate = useNavigate();
 
@@ -31,11 +30,7 @@ function UserComponent({ setIsActive }) {
 
   return (
     <div className="navbar-items user-component-container">
-      <img
-        src={userPic === null ? userIcon : userPic}
-        alt="user-icon"
-        className="user-icon"
-      />
+      <img src={userIcon} alt="user-icon" className="user-icon" />
       <div className="user-component" onClick={() => setIsActive(false)}>
         {user === null ? (
           <div className="user-login">

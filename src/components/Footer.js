@@ -60,10 +60,10 @@ function Footer() {
             at our online store.
           </p>
           <div className="footer-icons">
-            <a href="#">
+            <a href="/">
               <img src={instagram} alt="instagram icon" />
             </a>
-            <a href="#">
+            <a href="/">
               <img src={pinterest} alt="pintester icon" />
             </a>
             <a

@@ -3,30 +3,11 @@ import { useContext } from "react";
 import { ProductContext } from "../context/productContext";
 import { Link } from "react-router-dom";
 import "../styles/cart.css";
-import { collection, onSnapshot, query, where } from "firebase/firestore";
-import { useEffect } from "react";
-import { db } from "../firebase/firebaseConfig";
 import Loader from "../components/Loader";
 import CartProduct from "../components/CartProduct";
 
 function Cart() {
-  const itemsRef = collection(db, "cartItems");
-  const { user, dispatch, cart, isLoading } = useContext(ProductContext);
-  useEffect(() => {
-    const fetchPost = async () => {
-      dispatch({ type: "loading", payload: true });
-      if (user) {
-        const queryItems = query(itemsRef, where("userId", "==", user.uid));
-        const unsubscribe = onSnapshot(queryItems, (snapShot) => {
-          dispatch({ type: "addToCart", payload: snapShot.docs });
-        });
-        dispatch({ type: "loading", payload: false });
-
-        return () => unsubscribe();
-      }
-    };
-    fetchPost();
-  }, [user, cart.length]);
+  const { cart, isLoading } = useContext(ProductContext);
 
   if (isLoading) return <Loader />;
   if (!cart.length)
@@ -45,7 +26,7 @@ function Cart() {
           <h1>My Cart Products</h1>
           <h3>We design our products with quality in mind</h3>
         </div>
-        <div className="products-container">
+        <div className="cart-container">
           {cart
             .reduce((uniqueItems, item) => {
               const existingItem = uniqueItems.find(

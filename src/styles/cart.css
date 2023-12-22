@@ -28,3 +28,17 @@
   justify-content: center;
   align-items: center;
 }
+.dustbin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dustbin img {
+  width: 20px;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .dustbin img {
+    width: 24px;
+  }
+}

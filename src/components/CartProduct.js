@@ -1,8 +1,16 @@
 import React from "react";
 import "../styles/product.css";
 import dustbin from "../Assets/dustbin.png";
-function CartProduct({ item, quantity }) {
-  function handleDustbin() {}
+import { db } from "../firebase/firebaseConfig";
+import { deleteDoc, doc } from "firebase/firestore";
+function CartProduct({ item, quantity, userUID }) {
+  async function handleDustbin() {
+    try {
+      const res = deleteDoc(doc(db, "cartItems", item.docId));
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <div className="product">
       <img src={item.image} alt="item iocn" className="product-img" />

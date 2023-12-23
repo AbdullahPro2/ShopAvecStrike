@@ -48,13 +48,28 @@ function reducer(state, action) {
     case "addToCart":
       return {
         ...state,
+        cart: action.payload
+          .map((cartItem) => {
+            const productId = cartItem.data().productId;
+            const matchingProduct = all_product.find(
+              (item) => productId === item.id
+            );
 
-        cart: action.payload.map((cartItem) => {
-          return all_product.find(
-            (item) => cartItem.data().productId === item.id
-          );
-        }),
+            if (matchingProduct) {
+              return {
+                docId: cartItem.id, // Include the document ID
+                ...matchingProduct, // Include the product data
+              };
+            } else {
+              console.error(
+                `Matching product not found for productId: ${productId}`
+              );
+              return null; // Handle the case where the product is not found
+            }
+          })
+          .filter((item) => item !== null), // Filter out null values
       };
+
     default: {
       throw new Error("Unknown action type");
     }

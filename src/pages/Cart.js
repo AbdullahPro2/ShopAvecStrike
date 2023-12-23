@@ -7,8 +7,7 @@ import Loader from "../components/Loader";
 import CartProduct from "../components/CartProduct";
 
 function Cart() {
-  const { cart, isLoading } = useContext(ProductContext);
-
+  const { cart, isLoading, user } = useContext(ProductContext);
   if (isLoading) return <Loader />;
   if (!cart.length)
     return (
@@ -46,6 +45,7 @@ function Cart() {
                 key={uniqueItem.id}
                 item={uniqueItem}
                 quantity={uniqueItem.quantity}
+                userUID={user.uid}
               />
             ))}
         </div>

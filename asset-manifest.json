@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ShopAvecStrike/static/css/main.a85318f1.css",
-    "main.js": "/ShopAvecStrike/static/js/main.ad74c448.js",
+    "main.css": "/ShopAvecStrike/static/css/main.db3a2a79.css",
+    "main.js": "/ShopAvecStrike/static/js/main.c578b682.js",
     "static/media/familyBanner.png": "/ShopAvecStrike/static/media/familyBanner.80b25ec677c285824888.png",
     "static/media/kidsBanner.png": "/ShopAvecStrike/static/media/kidsBanner.214c99c04bf2fa1c7527.png",
     "static/media/boyGrid.jpg": "/ShopAvecStrike/static/media/boyGrid.8f4fd7b2ac95ae6b77f8.jpg",
@@ -47,11 +47,11 @@
     "static/media/aboutImage.webp": "/ShopAvecStrike/static/media/aboutImage.f2fa4f86e871f896f5eb.webp",
     "static/media/womenGrid.webp": "/ShopAvecStrike/static/media/womenGrid.a7df3d604c234f0f598b.webp",
     "index.html": "/ShopAvecStrike/index.html",
-    "main.a85318f1.css.map": "/ShopAvecStrike/static/css/main.a85318f1.css.map",
-    "main.ad74c448.js.map": "/ShopAvecStrike/static/js/main.ad74c448.js.map"
+    "main.db3a2a79.css.map": "/ShopAvecStrike/static/css/main.db3a2a79.css.map",
+    "main.c578b682.js.map": "/ShopAvecStrike/static/js/main.c578b682.js.map"
   },
   "entrypoints": [
-    "static/css/main.a85318f1.css",
-    "static/js/main.ad74c448.js"
+    "static/css/main.db3a2a79.css",
+    "static/js/main.c578b682.js"
   ]
 }

@@ -3,7 +3,7 @@ import cart from "../Assets/cart.png";
 import { ProductContext } from "../context/productContext";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
-function CartBtn({ product }) {
+function CartBtn({ product, setShowAlert }) {
   const { user } = useContext(ProductContext);
 
   const handleAddToCart = async (e) => {
@@ -20,7 +20,7 @@ function CartBtn({ product }) {
         console.error("Error adding document: ", e);
       }
     } else {
-      alert("Please login or signup first ");
+      setShowAlert(true);
     }
   };
 

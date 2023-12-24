@@ -1,11 +1,13 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ProductContext } from "../context/productContext";
 import ProductComponent from "../components/Product";
+import Alert from "../components/Alert";
 
 function Product(props) {
   const { category } = useParams();
   const { getSpecificProduct, products } = useContext(ProductContext);
+  const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
     getSpecificProduct(category);
@@ -18,8 +20,13 @@ function Product(props) {
       </div>
       <div className="products-container">
         {products.map((item) => (
-          <ProductComponent item={item} key={item.id} />
+          <ProductComponent
+            item={item}
+            key={item.id}
+            setShowAlert={setShowAlert}
+          />
         ))}
+        {showAlert && <Alert setShowAlert={setShowAlert} />}
       </div>
     </>
   );

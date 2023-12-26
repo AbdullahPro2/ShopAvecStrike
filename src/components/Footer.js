@@ -7,6 +7,7 @@ import linkedin from "../Assets/linkedin.png";
 import logo from "../Assets/logoSmall.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 
 function Footer() {
   AOS.init();
@@ -26,11 +27,10 @@ function Footer() {
             <a href="/" className="link-1">
               Home
             </a>
-            <a href="/">Blog</a>
-            <a href="/allproducts">Pricing</a>
-            <a href="/">About</a>
-            <a href="/">Faq</a>
-            <a href="/">Contact</a>
+            <Link to={"/allproducts"}>Products</Link>
+            <Link to={"/product/men"}>Men's</Link>
+            <Link to={"/product/women"}>Women's</Link>
+            <Link to={"/product/kid"}>Kid's</Link>
           </p>
           <p className="footer-company-name">Shop_Avec_Strike © 2023</p>
         </div>
